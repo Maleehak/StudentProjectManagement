@@ -1,0 +1,38 @@
+﻿.container-fluid {
+    height: 100%;
+}
+
+#customColor {
+    background-color: #009999;
+}
+
+.nav-link {
+    color: white;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+body {
+    background-color: aqua;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: new time 'Times New Roman'
+}
+
+.form-outer {
+    padding: 100px;
+    margin: 50px;
+    background: rgb(255, 255, 255); /* Black background with 0.5 opacity */
+    color: darkblue;
+}
+
+
+
+.input-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 10%;
+}
