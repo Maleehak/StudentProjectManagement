@@ -103,12 +103,7 @@ namespace StudentProjectManagement
 
         protected void Delete_Click(object sender, EventArgs e)
         {
-            string Sname = name.Text;
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "delete from Person where pname='" + Sname + "'";
-            cmd.ExecuteNonQuery();
-            reset();
+
         }
         protected void reset()
         {

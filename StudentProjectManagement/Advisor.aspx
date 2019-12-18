@@ -19,7 +19,7 @@
       <ul class="nav navbar-nav mr-auto">
         <li class="nav-item"><a href="Student.aspx" class="nav-link">Student</a></li>
         <li class="nav-item"><a href="Advisor.aspx" class="nav-link">Advisor</a></li>
-        <li class="nav-item"><a href="/Home/Contact" class="nav-link">Project</a></li>
+        <li class="nav-item"><a href="Project.aspx" class="nav-link">Project</a></li>
           <li class="nav-item"><a href="/Home/Contact" class="nav-link">Group</a></li>
          <li class="nav-item"><a href="/Home/Contact" class="nav-link">Evaluation</a></li>
       </ul>

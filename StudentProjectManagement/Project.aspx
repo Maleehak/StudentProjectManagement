@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Student.aspx.cs" Inherits="StudentProjectManagement.Student" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Project.aspx.cs" Inherits="StudentProjectManagement.Project" %>
 
 <!DOCTYPE html>
 
@@ -31,14 +31,14 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="form-outer">
-                          <h1 class="text-center">Student</h1>
+                          <h1 class="text-center">Project</h1>
          <form id="form1" runat="server">
               <div class="input-container">
         <div>
             <table class="table-responsive">
                 <tr>
                     <td>
-                        Name:
+                        Project Name:
                     </td>
                      
                     <td>
@@ -47,41 +47,34 @@
                 </tr>
                  <tr>
                     <td>
-                        Registration No.:
+                        Description:
                     </td>
                      
                     <td>
-                        <asp:TextBox ID="regNum" runat="server" Width="300px" Height="50px" ></asp:TextBox>
+                        <asp:TextBox ID="description" runat="server" Width="300px" Height="50px" ></asp:TextBox>
                     </td>
                 </tr>
                   <tr>
                     <td>
-                        Contact:
+                        Advisor:
                     </td>
                        
                     <td>
-                        <asp:TextBox ID="contact" runat="server" Width="300px" Height="50px"></asp:TextBox>  
+                        <asp:DropDownList ID="advisor" runat="server" Height="50px" Width="300px">
+                            <asp:ListItem></asp:ListItem>
+                            <asp:ListItem></asp:ListItem>
+                        </asp:DropDownList>
                     </td>
             
                 </tr>  
-                 
-                  <tr>
-                    <td>
-                        Degree:
-                    </td>
-                     
-                    <td>
-                        <asp:TextBox ID="degree" runat="server" Width="300px" Height="50px"></asp:TextBox>
-                    </td>
-                </tr>
                 <tr>
                   
                      <td>
                      
                     </td>
                     <td>
-                        <asp:Button ID="Add" runat="server" Text="Add" BackColor="#009999" Height="40" Width="90px" ForeColor="White" OnClick="Add_Click"/>
-                        <asp:Button ID="Update" runat="server" Text="Update" BackColor="#009999" Height="40" Width="90px" ForeColor="White" OnClick="Update_Click" />
+                        <asp:Button ID="Add" runat="server" Text="Add" BackColor="#009999" ForeColor="White" Height="40" Width="90px" OnClick="Add_Click" />
+                        <asp:Button ID="Update" runat="server" Text="Update" BackColor="#009999" ForeColor="White" Height="40" Width="90px" OnClick="Update_Click" />
                         <asp:Button ID="Delete" runat="server" Text="Delete" BackColor="#009999" ForeColor="White" Height="40" Width="90px" OnClick="Delete_Click" />
                     </td>
                     <td>
