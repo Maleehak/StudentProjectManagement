@@ -10,7 +10,7 @@ namespace StudentProjectManagement
 {
     public partial class Advisor : System.Web.UI.Page
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-82ANPR0U;Initial Catalog=ProjectDB;Integrated Security=True");
+        readonly SqlConnection conn = new SqlConnection(@"Data Source=HP-G3I5;Initial Catalog=ProjectDB;Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,7 +33,7 @@ namespace StudentProjectManagement
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "insert into Person(pname,contact,designation,rank,CatId) values ('" + Aname + "','" + Acontact + "','" + Adesignation + "','" + Arank + "','" + AdvisorID + "')";
             cmd.ExecuteNonQuery();
-            reset();
+            Reset();
 
 
         }
@@ -101,7 +101,7 @@ namespace StudentProjectManagement
 
 
             cmd.ExecuteNonQuery();
-            reset();
+            Reset();
 
         }
 
@@ -112,16 +112,16 @@ namespace StudentProjectManagement
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "delete from Person where pname='" + Aname + "'";
             cmd.ExecuteNonQuery();
-            reset();
+            Reset();
         }
-        protected void reset()
+        protected void Reset()
         {
             name.Text = "";
             rank.Text = "";
             designation.Text = "";
             contact.Text = "";
         }
-        public void displayData()
+        public void DisplayData()
         {
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;

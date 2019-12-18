@@ -19,7 +19,7 @@
         <li class="nav-item"><a href="Student.aspx" class="nav-link">Student</a></li>
         <li class="nav-item"><a href="Advisor.aspx" class="nav-link">Advisor</a></li>
         <li class="nav-item"><a href="Project.aspx" class="nav-link">Project</a></li>
-          <li class="nav-item"><a href="/Home/Contact" class="nav-link">Group</a></li>
+          <li class="nav-item"><a href="Group.aspx" class="nav-link">Group</a></li>
          <li class="nav-item"><a href="/Home/Contact" class="nav-link">Evaluation</a></li>
       </ul>
 
@@ -42,7 +42,7 @@
                     </td>
                      
                     <td>
-                        <asp:TextBox ID="name" runat="server" Width="300px" Height="50px" ></asp:TextBox>
+                        <asp:TextBox ID="name" runat="server"  Width="300px" Height="50px"></asp:TextBox>
                     </td>
                 </tr>
                  <tr>
@@ -60,7 +60,7 @@
                     </td>
                        
                     <td>
-                        <asp:DropDownList ID="advisor" runat="server" Height="50px" Width="300px">
+                        <asp:DropDownList ID="advisor" runat="server">
                             <asp:ListItem></asp:ListItem>
                             <asp:ListItem></asp:ListItem>
                         </asp:DropDownList>
