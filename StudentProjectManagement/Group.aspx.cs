@@ -80,6 +80,66 @@ namespace StudentProjectManagement
 
         protected void Update_Click(object sender, EventArgs e)
         {
+            string groupNumber = GroupNum.Text;
+            string projectID = Projects.SelectedItem.Value;
+            bool key1 = false, key2 = false;
+            if (projectID != "") { key1 = true; }
+            if (Students.SelectedIndex != -1) { key2 = true; }
+            if (key1 && key2)
+            {
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                //string of 4 students
+                string[] studentsArray = new String[4];
+                int index = 0;
+                foreach (ListItem listItem in Students.Items)
+                {
+                    if (listItem.Selected)
+                    {
+                        var val = listItem.Value;
+                        studentsArray[index] = val;
+                        index++;
+                    }
+                }
+                cmd.CommandText = "update ProjectGroup set projectId= '" + projectID + "',s1='" + studentsArray[0] + "',s2='" + studentsArray[1] + "',s3='" + studentsArray[2] + "',s4='" + studentsArray[3] + "' where GNum='" + groupNumber + "' ";
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+
+            }
+            else if (key1)
+            {
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update ProjectGroup set projectId= '" + projectID + "' where GNum='" + groupNumber + "' ";
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+            }
+            else if (key2)
+            {
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                //string of 4 students
+                string[] studentsArray = new String[4];
+                int index = 0;
+                foreach (ListItem listItem in Students.Items)
+                {
+                    if (listItem.Selected)
+                    {
+                        var val = listItem.Value;
+                        studentsArray[index] = val;
+                        index++;
+                    }
+                }
+                cmd.CommandText = "update ProjectGroup set s1='" + studentsArray[0] + "',s2='" + studentsArray[1] + "',s3='" + studentsArray[2] + "',s4='" + studentsArray[3] + "' where GNum='" + groupNumber + "' ";
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+            }
 
         }
 
