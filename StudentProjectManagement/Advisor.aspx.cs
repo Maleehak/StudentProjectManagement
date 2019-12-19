@@ -10,7 +10,7 @@ namespace StudentProjectManagement
 {
     public partial class Advisor : System.Web.UI.Page
     {
-        readonly SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-82ANPR0U;Initial Catalog=ProjectDB;Integrated Security=True");
+        readonly SqlConnection conn = new SqlConnection(@"Data Source=HP-G3I5;Initial Catalog=ProjectDB;Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,6 +19,7 @@ namespace StudentProjectManagement
                 conn.Close();
             }
             conn.Open();
+            DisplayData();
 
         }
 
@@ -34,6 +35,7 @@ namespace StudentProjectManagement
             cmd.CommandText = "insert into Person(pname,contact,designation,rank,CatId) values ('" + Aname + "','" + Acontact + "','" + Adesignation + "','" + Arank + "','" + AdvisorID + "')";
             cmd.ExecuteNonQuery();
             Reset();
+            DisplayData();
 
 
         }
@@ -102,6 +104,7 @@ namespace StudentProjectManagement
 
             cmd.ExecuteNonQuery();
             Reset();
+            DisplayData();
 
         }
 
@@ -113,6 +116,7 @@ namespace StudentProjectManagement
             cmd.CommandText = "delete from Person where pname='" + Aname + "'";
             cmd.ExecuteNonQuery();
             Reset();
+            DisplayData();
         }
         protected void Reset()
         {
@@ -123,15 +127,17 @@ namespace StudentProjectManagement
         }
         public void DisplayData()
         {
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from Person";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            //GridView1.DataSource = dt;
-            //GridView1.DataBind();
+           
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from Person where CatId=1";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            
         }
     }
 }

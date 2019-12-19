@@ -11,7 +11,7 @@ namespace StudentProjectManagement
 {
     public partial class Student : System.Web.UI.Page
     {
-        readonly SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-82ANPR0U;Initial Catalog=ProjectDB;Integrated Security=True");
+        readonly SqlConnection conn = new SqlConnection(@"Data Source=HP-G3I5;Initial Catalog=ProjectDB;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (conn.State == ConnectionState.Open)
@@ -19,6 +19,7 @@ namespace StudentProjectManagement
                 conn.Close();
             }
             conn.Open();
+            DisplayData();
         }
 
         protected void Add_Click(object sender, EventArgs e)
@@ -33,6 +34,7 @@ namespace StudentProjectManagement
             cmd.CommandText = "insert into Person(pname,contact,degree,regNum,CatId) values ('" + Sname + "','" + Scontact + "','" + Sdegree + "','" + SregNum + "','" + StudentID + "')";
             cmd.ExecuteNonQuery();
             Reset();
+            DisplayData();
         }
 
         protected void Update_Click(object sender, EventArgs e)
@@ -99,11 +101,18 @@ namespace StudentProjectManagement
 
             cmd.ExecuteNonQuery();
            Reset();
+            DisplayData();
         }
 
         protected void Delete_Click(object sender, EventArgs e)
         {
-
+            string Aname = name.Text;
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "delete from Person where pname='" + Aname + "'";
+            cmd.ExecuteNonQuery();
+            Reset();
+            DisplayData();
         }
         protected void Reset()
         {
@@ -111,6 +120,20 @@ namespace StudentProjectManagement
             regNum.Text = "";
             degree.Text = "";
             contact.Text = "";
+        }
+        public void DisplayData()
+        {
+
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Person where CatId=2";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+
         }
     }
 }
