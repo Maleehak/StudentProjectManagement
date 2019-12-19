@@ -33,6 +33,8 @@ namespace StudentProjectManagement
                 groupNum.Items[0].Attributes["disabled"] = "disabled";
                 conn.Close();
             }
+            conn.Open();
+            DisplayData();
         }
 
         protected void Add_Click(object sender, EventArgs e)
@@ -45,6 +47,7 @@ namespace StudentProjectManagement
             string GroupNumber = groupNum.SelectedItem.Value;
             cmd.CommandText = "insert into Evaluation(totalMarks,obtainedMarks,groupNum) values ('" + TotalMarks + "','" + ObtainedMarks + "','" + GroupNumber + "')";
             cmd.ExecuteNonQuery();
+            DisplayData();
             conn.Close();
             Reset();
         }
@@ -62,8 +65,10 @@ namespace StudentProjectManagement
             cmd.CommandText = "delete from Evaluation where groupNum='" + GroupNumber + "'";
             conn.Open();
             cmd.ExecuteNonQuery();
+            DisplayData();
             conn.Close();
             Reset();
+            
         }
 
         protected void Update_Click(object sender, EventArgs e)
@@ -106,6 +111,20 @@ namespace StudentProjectManagement
                 conn.Close();
                 Reset();
             }
+            conn.Open();
+            DisplayData();
+        }
+        public void DisplayData()
+        {
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Evaluation";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
         }
     }
 }

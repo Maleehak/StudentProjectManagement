@@ -37,7 +37,6 @@ namespace StudentProjectManagement
             Reset();
             DisplayData();
 
-
         }
 
         protected void Update_Click(object sender, EventArgs e)
@@ -105,7 +104,6 @@ namespace StudentProjectManagement
             cmd.ExecuteNonQuery();
             Reset();
             DisplayData();
-
         }
 
         protected void Delete_Click(object sender, EventArgs e)
@@ -116,7 +114,7 @@ namespace StudentProjectManagement
             cmd.CommandText = "delete from Person where pname='" + Aname + "'";
             cmd.ExecuteNonQuery();
             Reset();
-            DisplayData();
+           
         }
         protected void Reset()
         {
@@ -125,19 +123,22 @@ namespace StudentProjectManagement
             designation.Text = "";
             contact.Text = "";
         }
+        public void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+        }
         public void DisplayData()
         {
-           
-                SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Person where CatId=1";
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
-            
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select pname,contact,designation,rank from Person where CatId=2";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            GridView2.DataSource = dt;
+            GridView2.DataBind();
+            conn.Close();
+        }
         }
     }
-}

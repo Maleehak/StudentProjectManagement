@@ -19,6 +19,7 @@ namespace StudentProjectManagement
                 conn.Close();
             }
             conn.Open();
+            
             DisplayData();
         }
 
@@ -34,6 +35,7 @@ namespace StudentProjectManagement
             cmd.CommandText = "insert into Person(pname,contact,degree,regNum,CatId) values ('" + Sname + "','" + Scontact + "','" + Sdegree + "','" + SregNum + "','" + StudentID + "')";
             cmd.ExecuteNonQuery();
             Reset();
+            conn.Close();
             DisplayData();
         }
 
@@ -101,6 +103,7 @@ namespace StudentProjectManagement
 
             cmd.ExecuteNonQuery();
            Reset();
+            conn.Close();
             DisplayData();
         }
 
@@ -112,6 +115,7 @@ namespace StudentProjectManagement
             cmd.CommandText = "delete from Person where pname='" + Aname + "'";
             cmd.ExecuteNonQuery();
             Reset();
+            conn.Close();
             DisplayData();
         }
         protected void Reset()
@@ -121,19 +125,22 @@ namespace StudentProjectManagement
             degree.Text = "";
             contact.Text = "";
         }
-        public void DisplayData()
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
 
+        }
+        public void DisplayData()
+        {
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from Person where CatId=2";
+            cmd.CommandText = "select pname,contact,regNum,degree from Person where CatId=2";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
             GridView1.DataSource = dt;
             GridView1.DataBind();
-
+            conn.Close();
         }
     }
 }

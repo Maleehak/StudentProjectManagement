@@ -93,9 +93,14 @@
                   
                 </tr>
                 <tr>
-                    
-                        <asp:GridView ID="GridView1" runat="server"></asp:GridView>
-                    
+                     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView2_RowDataBound" BackColor="White" PageIndex="20">
+                 <Columns>  
+                <asp:BoundField DataField="pname" HeaderText="Advisor Name" HeaderStyle-BackColor="#a5cfd3"   />  
+                <asp:BoundField DataField="contact" HeaderText="Contact" HeaderStyle-BackColor="#a5cfd3" />   
+                <asp:BoundField DataField="designation" HeaderText="Degree" HeaderStyle-BackColor="#a5cfd3" />  
+                 <asp:BoundField DataField="rank" HeaderText="Rank" HeaderStyle-BackColor="#a5cfd3" /> 
+                </Columns>
+            </asp:GridView>
                 </tr>
             </table>
         </div>

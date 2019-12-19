@@ -90,8 +90,15 @@
                    </td>
                   
                 </tr>
-                <tr>
-                    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+                  <tr>
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" BackColor="White" PageIndex="20">
+                 <Columns>  
+                <asp:BoundField DataField="pname" HeaderText="Student Name" HeaderStyle-BackColor="#a5cfd3"   />  
+                <asp:BoundField DataField="contact" HeaderText="Contact" HeaderStyle-BackColor="#a5cfd3" />  
+                <asp:BoundField DataField="regNum" HeaderText="Registration Number" HeaderStyle-BackColor="#a5cfd3" />  
+                <asp:BoundField DataField="degree" HeaderText="Degree" HeaderStyle-BackColor="#a5cfd3" />  
+                </Columns>
+            </asp:GridView>
                 </tr>
             </table>
         </div>

@@ -48,6 +48,8 @@ namespace StudentProjectManagement
                 
 
             }
+            conn.Open();
+            DisplayData();
 
 
         }
@@ -73,6 +75,7 @@ namespace StudentProjectManagement
             }
             cmd.CommandText = "insert into ProjectGroup(GNum,ProjectId,s1,s2,s3,s4) values ('" + groupNumber + "','" + projectID+ "','" + studentsArray[0]+ "','" + studentsArray[1] + "','" + studentsArray[2] + "','" + studentsArray[3] + "')";
             cmd.ExecuteNonQuery();
+            DisplayData();
             conn.Close();
 
 
@@ -140,7 +143,8 @@ namespace StudentProjectManagement
                 conn.Close();
 
             }
-
+            conn.Open();
+            DisplayData();
         }
 
         protected void Delete_Click(object sender, EventArgs e)
@@ -151,9 +155,23 @@ namespace StudentProjectManagement
             cmd.CommandText = "delete from ProjectGroup where GNum='" +groupNumber + "'";
             conn.Open();
             cmd.ExecuteNonQuery();
+            DisplayData();
             conn.Close();
+
             
 
+        }
+        public void DisplayData()
+        {
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from ProjectGroup";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
         }
     }
 }
