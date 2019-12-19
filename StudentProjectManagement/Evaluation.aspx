@@ -59,7 +59,7 @@
                         Group Number:
                     </td>
                     <td>
-                        <asp:TextBox ID="GroupNum" runat="server" Width="300px" Height="50px"></asp:TextBox>
+                        <asp:DropDownList ID="groupNum" runat="server"></asp:DropDownList>
                     </td>
                 </tr> 
                 <tr>
@@ -68,7 +68,7 @@
                      
                     </td>
                     <td>
-                        <asp:Button ID="Add" runat="server" Text="Add" ForeColor="White" Height="40" Width="90px" BackColor="#009999" />
+                        <asp:Button ID="Add" runat="server" Text="Add" ForeColor="White" Height="40" Width="90px" BackColor="#009999" OnClick="Add_Click" />
                         <asp:Button ID="Update" runat="server" Text="Update" BackColor="#009999" ForeColor="White" Height="40" Width="90px" />
                         <asp:Button ID="Delete" runat="server" Text="Delete" BackColor="#009999" ForeColor="White" Height="40" Width="90px" />
                     </td>
