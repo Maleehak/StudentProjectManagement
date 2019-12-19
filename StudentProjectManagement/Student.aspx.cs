@@ -11,7 +11,7 @@ namespace StudentProjectManagement
 {
     public partial class Student : System.Web.UI.Page
     {
-        readonly SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-82ANPR0U;Initial Catalog=ProjectDB;Integrated Security=True");
+        readonly SqlConnection conn = new SqlConnection(@"Data Source=HP-G3I5;Initial Catalog=ProjectDB;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (conn.State == ConnectionState.Open)

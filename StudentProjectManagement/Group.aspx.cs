@@ -11,7 +11,7 @@ namespace StudentProjectManagement
 {
     public partial class Group : System.Web.UI.Page
     {
-        readonly SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-82ANPR0U;Initial Catalog=ProjectDB;Integrated Security=True");
+        readonly SqlConnection conn = new SqlConnection(@"Data Source=HP-G3I5;Initial Catalog=ProjectDB;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -66,7 +66,7 @@ namespace StudentProjectManagement
             {
                 if (listItem.Selected)
                 {
-                    var val = listItem.Value;
+                    var val = listItem.Text;
                     studentsArray[index] = val;
                     index++;
                 }
@@ -97,7 +97,7 @@ namespace StudentProjectManagement
                 {
                     if (listItem.Selected)
                     {
-                        var val = listItem.Value;
+                        var val = listItem.Text;
                         studentsArray[index] = val;
                         index++;
                     }
@@ -130,7 +130,7 @@ namespace StudentProjectManagement
                 {
                     if (listItem.Selected)
                     {
-                        var val = listItem.Value;
+                        var val = listItem.Text;
                         studentsArray[index] = val;
                         index++;
                     }
