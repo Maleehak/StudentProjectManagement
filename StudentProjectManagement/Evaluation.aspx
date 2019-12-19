@@ -1,12 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Advisor.aspx.cs" Inherits="StudentProjectManagement.Advisor" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Evaluation.aspx.cs" Inherits="StudentProjectManagement.Evaluation" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>
-         University of Engineering and Techlogy ,Lahore
-    </title>
-    <meta charset="utf-8"/>
+    <title>University of Engineering and Technology,Lahore</title>
+     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="Style.css" rel="stylesheet"/>
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
@@ -32,58 +31,46 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="form-outer">
-                          <h1 class="text-center">Advisor</h1>
+                          <h1 class="text-center">Evaluation</h1>
          <form id="form1" runat="server">
               <div class="input-container">
         <div>
             <table class="table-responsive">
                 <tr>
                     <td>
-                        Name:
+                        Total Marks:
                     </td>
                      
                     <td>
-                        <asp:TextBox ID="name" runat="server" Width="300px" Height="50px" ></asp:TextBox>
+                        <asp:TextBox ID="Tmarks" runat="server"  Width="300px" Height="50px"></asp:TextBox>
                     </td>
                 </tr>
                  <tr>
                     <td>
-                        Rank:
+                        Obtained Marks:
                     </td>
                      
                     <td>
-                        <asp:TextBox ID="rank" runat="server" Width="300px" Height="50px" ></asp:TextBox>
+                        <asp:TextBox ID="Omarks" runat="server" Width="300px" Height="50px" ></asp:TextBox>
                     </td>
                 </tr>
-                  <tr>
+                <tr>
                     <td>
-                        Contact:
+                        Group Number:
                     </td>
-                       
                     <td>
-                        <asp:TextBox ID="contact" runat="server" Width="300px" Height="50px"></asp:TextBox>  
+                        <asp:TextBox ID="GroupNum" runat="server" Width="300px" Height="50px"></asp:TextBox>
                     </td>
-            
-                </tr>  
-                 
-                  <tr>
-                    <td>
-                        Designation:
-                    </td>
-                     
-                    <td>
-                        <asp:TextBox ID="designation" runat="server" Width="300px" Height="50px"></asp:TextBox>
-                    </td>
-                </tr>
+                </tr> 
                 <tr>
                   
                      <td>
                      
                     </td>
-                    <td>  
-                        <asp:Button ID="Add" runat="server" Text="Add" BackColor="#009999" Height="40" Width="90px" ForeColor="White" OnClick="Add_Click" />
-                          <asp:Button ID="Update" runat="server" Text="Update" BackColor="#009999" Height="40" Width="90px" ForeColor="White" OnClick="Update_Click" />
-                         <asp:Button ID="Delete" runat="server" Text="Delete"  BackColor="#009999" Height="40" Width="90px" ForeColor="White" OnClick="Delete_Click" />
+                    <td>
+                        <asp:Button ID="Add" runat="server" Text="Add" ForeColor="White" Height="40" Width="90px" BackColor="#009999" />
+                        <asp:Button ID="Update" runat="server" Text="Update" BackColor="#009999" ForeColor="White" Height="40" Width="90px" />
+                        <asp:Button ID="Delete" runat="server" Text="Delete" BackColor="#009999" ForeColor="White" Height="40" Width="90px" />
                     </td>
                     <td>
                        
@@ -98,7 +85,5 @@
    </div>
         </div>
         </div>
-   
 </body>
 </html>
-

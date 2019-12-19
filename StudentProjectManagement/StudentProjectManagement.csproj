@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Advisor.aspx" />
+    <Content Include="Evaluation.aspx" />
     <Content Include="Group.aspx" />
     <Content Include="Project.aspx" />
     <Content Include="Student.aspx" />
@@ -82,6 +83,13 @@
     </Compile>
     <Compile Include="Advisor.aspx.designer.cs">
       <DependentUpon>Advisor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Evaluation.aspx.cs">
+      <DependentUpon>Evaluation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Evaluation.aspx.designer.cs">
+      <DependentUpon>Evaluation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Group.aspx.cs">
       <DependentUpon>Group.aspx</DependentUpon>

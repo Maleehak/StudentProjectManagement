@@ -20,7 +20,7 @@
         <li class="nav-item"><a href="Advisor.aspx" class="nav-link">Advisor</a></li>
         <li class="nav-item"><a href="Project.aspx" class="nav-link">Project</a></li>
           <li class="nav-item"><a href="Group.aspx" class="nav-link">Group</a></li>
-         <li class="nav-item"><a href="/Home/Contact" class="nav-link">Evaluation</a></li>
+         <li class="nav-item"><a href="Evaluation.aspx" class="nav-link">Evaluation</a></li>
       </ul>
 
      </div>
