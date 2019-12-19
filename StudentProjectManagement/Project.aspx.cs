@@ -11,7 +11,7 @@ namespace StudentProjectManagement
 {
     public partial class Project : System.Web.UI.Page
     {
-        readonly SqlConnection conn = new SqlConnection(@"Data Source=HP-G3I5;Initial Catalog=ProjectDB;Integrated Security=True");
+        readonly SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-82ANPR0U;Initial Catalog=ProjectDB;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -70,8 +70,44 @@ namespace StudentProjectManagement
 
         protected void Update_Click(object sender, EventArgs e)
         {
-            //bool key1 = false, key2 = false;
-            //string projectName = name.Text;
+            bool key1 = false, key2 = false;
+            string projectName = name.Text;
+            string projectDescrption = description.Text;
+            string projectAdvisorID = advisor.Text;
+            if (projectDescrption != "") { key1 = true; }
+            if (projectAdvisorID != "") { key2 = true; }
+            if(key1 && key2)
+            {
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                //string projectAdvisorID = advisor.SelectedItem.Value;
+                cmd.CommandText = "update Project set pid= '" + projectAdvisorID + "',description= '" + projectDescrption + "' where name='" + projectName + "' ";
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                Reset();
+            }
+            else if (key1)
+            {
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update Project set description= '" + projectDescrption + "' where name='" + projectName + "' ";
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                Reset();
+
+            }
+            else if (key2)
+            {
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update Project set pid= '" + projectAdvisorID + "' where name='" + projectName + "' ";
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                Reset();
+            }
         }
 
     }
