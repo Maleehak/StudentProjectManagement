@@ -6,9 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+
 namespace StudentProjectManagement
 {
-    public partial class GroupReport : System.Web.UI.Page
+    public partial class MarksSheetReport : System.Web.UI.Page
     {
         readonly SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-82ANPR0U;Initial Catalog=ProjectDB;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
@@ -16,7 +17,7 @@ namespace StudentProjectManagement
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT p.pname,p.rank,p.contact,p.designation,pro.name,pro.description,g.GNum,g.s1,g.s2,g.s3,g.s4 from Person p LEFT JOIN Project pro ON p.pid=pro.pid LEFT JOIN ProjectGroup g ON pro.ProjectId=g.ProjectId WHERE p.CatId=1";
+            cmd.CommandText = "SELECT pro.name,g.s1,g.s2,g.s3,g.s4 ,e.totalMarks,e.obtainedMarks from Project pro LEFT JOIN ProjectGroup g ON pro.ProjectId=g.ProjectId LEFT JOIN Evaluation e ON g.GId=e.GId";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -25,11 +26,6 @@ namespace StudentProjectManagement
 
 
             GridView1.DataBind();
-
-        }
-        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            
         }
     }
 }

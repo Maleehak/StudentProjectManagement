@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GroupReport.aspx.cs" Inherits="StudentProjectManagement.GroupReport" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MarksSheetReport.aspx.cs" Inherits="StudentProjectManagement.MarksSheetReport" %>
 
 <!DOCTYPE html>
 
@@ -11,7 +11,6 @@
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
 <body>
-  
   
           <form id="form1" runat="server">
               <div>
@@ -26,7 +25,7 @@
           <li class="nav-item"><a href="Group.aspx" class="nav-link">Group</a></li>
          <li class="nav-item"><a href="Evaluation.aspx" class="nav-link">Evaluation</a></li>
           <li class="nav-item"><a href="GroupReport.aspx" class="nav-link">Group Report</a></li>
-           <li class="nav-item"><a href="MarksSheetReport.aspx" class="nav-link">Marks Sheet</a></li>
+          <li class="nav-item"><a href="MarksSheetReport.aspx" class="nav-link">Marks Sheet</a></li>
       </ul>
 
      </div>
@@ -34,26 +33,21 @@
     </nav>
      </div>
               <div id="heading">
-                  <h1 >Final Report</h1>
+                  <h1 >Marks Report</h1>
               </div>
         <div>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" BackColor="White" PageIndex="20">
-                 <Columns>  
-                <asp:BoundField DataField="pname" HeaderText="Advisor" HeaderStyle-BackColor="#a5cfd3"   />  
-                <asp:BoundField DataField="rank" HeaderText="Rank" HeaderStyle-BackColor="#a5cfd3" />  
-                <asp:BoundField DataField="contact" HeaderText="Contact" HeaderStyle-BackColor="#a5cfd3" />  
-                <asp:BoundField DataField="designation" HeaderText="Designation" HeaderStyle-BackColor="#a5cfd3" />  
-                <asp:BoundField DataField="name" HeaderText="Project Name" HeaderStyle-BackColor="#a5cfd3" />  
-                <asp:BoundField DataField="description" HeaderText="Description" HeaderStyle-BackColor="#a5cfd3" />  
-                 <asp:BoundField DataField="GNum" HeaderText="Group Number" HeaderStyle-BackColor="#a5cfd3" /> 
-                <asp:BoundField DataField="s1" HeaderText="Student 1" HeaderStyle-BackColor="#a5cfd3" /> 
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" PageIndex="20">
+                <Columns>  
+                <asp:BoundField DataField="name" HeaderText="Project Name" HeaderStyle-BackColor="#a5cfd3"   /> 
+                 <asp:BoundField DataField="s1" HeaderText="Student 1" HeaderStyle-BackColor="#a5cfd3" /> 
                  <asp:BoundField DataField="s2" HeaderText="Student 2" HeaderStyle-BackColor="#a5cfd3" /> 
                  <asp:BoundField DataField="s3" HeaderText="Student 3" HeaderStyle-BackColor="#a5cfd3" /> 
                  <asp:BoundField DataField="s4" HeaderText="Student 4" HeaderStyle-BackColor="#a5cfd3"  /> 
-
+                <asp:BoundField DataField="totalMarks" HeaderText="Total Marks" HeaderStyle-BackColor="#a5cfd3" />  
+                <asp:BoundField DataField="obtainedMarks" HeaderText="Obtained Maeks" HeaderStyle-BackColor="#a5cfd3" /> 
                 </Columns>
             </asp:GridView>
-            
+
            
         </div>
     </form>

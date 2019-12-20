@@ -23,6 +23,7 @@
           <li class="nav-item"><a href="Group.aspx" class="nav-link">Group</a></li>
          <li class="nav-item"><a href="Evaluation.aspx" class="nav-link">Evaluation</a></li>
            <li class="nav-item"><a href="GroupReport.aspx" class="nav-link">Group Report</a></li>
+           <li class="nav-item"><a href="MarksSheetReport.aspx" class="nav-link">Marks Sheet</a></li>
           
       </ul>
 

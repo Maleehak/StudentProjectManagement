@@ -72,6 +72,7 @@
     <Content Include="Evaluation.aspx" />
     <Content Include="Group.aspx" />
     <Content Include="GroupReport.aspx" />
+    <Content Include="MarksSheetReport.aspx" />
     <Content Include="Project.aspx" />
     <Content Include="Student.aspx" />
     <Content Include="Style.css" />
@@ -105,6 +106,13 @@
     </Compile>
     <Compile Include="GroupReport.aspx.designer.cs">
       <DependentUpon>GroupReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MarksSheetReport.aspx.cs">
+      <DependentUpon>MarksSheetReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MarksSheetReport.aspx.designer.cs">
+      <DependentUpon>MarksSheetReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Project.aspx.cs">
       <DependentUpon>Project.aspx</DependentUpon>
