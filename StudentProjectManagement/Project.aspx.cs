@@ -11,7 +11,7 @@ namespace StudentProjectManagement
 {
     public partial class Project : System.Web.UI.Page
     {
-        readonly SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-82ANPR0U;Initial Catalog=ProjectDB;Integrated Security=True");
+        readonly SqlConnection conn = new SqlConnection(@"Data Source=HP-G3I5;Initial Catalog=ProjectDB;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -31,9 +31,11 @@ namespace StudentProjectManagement
                 advisor.Items.Insert(0, new ListItem("--Select--", ""));
                 advisor.Items[0].Selected = true;
                 advisor.Items[0].Attributes["disabled"] = "disabled";
+               
                 conn.Close();
             }
-
+            conn.Open();
+            DisplayData();
         } 
         protected void Add_Click(object sender, EventArgs e)
         {
@@ -47,6 +49,8 @@ namespace StudentProjectManagement
             cmd.ExecuteNonQuery();
             conn.Close();
             Reset();
+            conn.Open();
+            DisplayData();
 
         }
         protected void Reset()
@@ -64,6 +68,7 @@ namespace StudentProjectManagement
             cmd.CommandText = "delete from Project where name='" + projectName + "'";
             conn.Open();
             cmd.ExecuteNonQuery();
+            DisplayData();
             conn.Close();
             Reset();
         }
@@ -108,6 +113,21 @@ namespace StudentProjectManagement
                 conn.Close();
                 Reset();
             }
+            conn.Open();
+            DisplayData();
+        }
+        public void DisplayData()
+        {
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select* from Project";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+            conn.Close();
         }
 
     }

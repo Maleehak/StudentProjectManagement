@@ -10,7 +10,7 @@ namespace StudentProjectManagement
 {
     public partial class Advisor : System.Web.UI.Page
     {
-        readonly SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-82ANPR0U;Initial Catalog=ProjectDB;Integrated Security=True");
+        readonly SqlConnection conn = new SqlConnection(@"Data Source=HP-G3I5;Initial Catalog=ProjectDB;Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,6 +25,7 @@ namespace StudentProjectManagement
 
         protected void Add_Click(object sender, EventArgs e)
         {
+            conn.Open();
             int AdvisorID = 1;
             string Aname = name.Text;
             string Arank = rank.Text;
@@ -41,6 +42,7 @@ namespace StudentProjectManagement
 
         protected void Update_Click(object sender, EventArgs e)
         {
+            conn.Open();
             bool key1 = false, key2 = false, key3 = false;
             string Aname = name.Text;
             string Arank = rank.Text;
@@ -108,12 +110,14 @@ namespace StudentProjectManagement
 
         protected void Delete_Click(object sender, EventArgs e)
         {
+            conn.Open();
             string Aname = name.Text;
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "delete from Person where pname='" + Aname + "'";
             cmd.ExecuteNonQuery();
             Reset();
+            DisplayData();
            
         }
         protected void Reset()
@@ -131,7 +135,7 @@ namespace StudentProjectManagement
         {
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select pname,contact,designation,rank from Person where CatId=2";
+            cmd.CommandText = "select pname,contact,designation,rank from Person where CatId=1";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);

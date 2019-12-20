@@ -11,7 +11,7 @@ namespace StudentProjectManagement
 {
     public partial class Student : System.Web.UI.Page
     {
-        readonly SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-82ANPR0U;Initial Catalog=ProjectDB;Integrated Security=True");
+        readonly SqlConnection conn = new SqlConnection(@"Data Source=HP-G3I5;Initial Catalog=ProjectDB;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (conn.State == ConnectionState.Open)
@@ -25,6 +25,7 @@ namespace StudentProjectManagement
 
         protected void Add_Click(object sender, EventArgs e)
         {
+            conn.Open();
             int StudentID = 2;
             string Sname = name.Text;
             string SregNum = regNum.Text;
@@ -35,12 +36,14 @@ namespace StudentProjectManagement
             cmd.CommandText = "insert into Person(pname,contact,degree,regNum,CatId) values ('" + Sname + "','" + Scontact + "','" + Sdegree + "','" + SregNum + "','" + StudentID + "')";
             cmd.ExecuteNonQuery();
             Reset();
-            conn.Close();
             DisplayData();
+            conn.Close();
+            
         }
 
         protected void Update_Click(object sender, EventArgs e)
         {
+            conn.Open();
             bool key1 = false, key2 = false, key3 = false;
             string Sname = name.Text;
             string SregNum = regNum.Text;
@@ -103,20 +106,23 @@ namespace StudentProjectManagement
 
             cmd.ExecuteNonQuery();
            Reset();
-            conn.Close();
             DisplayData();
+            conn.Close();
+            
         }
 
         protected void Delete_Click(object sender, EventArgs e)
         {
+            conn.Open();
             string Aname = name.Text;
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "delete from Person where pname='" + Aname + "'";
             cmd.ExecuteNonQuery();
             Reset();
-            conn.Close();
             DisplayData();
+            conn.Close();
+            
         }
         protected void Reset()
         {
